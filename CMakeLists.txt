@@ -11,16 +11,11 @@ find_package(Qt6 REQUIRED COMPONENTS Core Quick)
 add_library(lingmo-apps-common SHARED
     src/main.cpp
 )
+target_compile_definitions(lingmo-apps-common PRIVATE LINGMO_APPS_COMMON_LIBRARY)
 
 target_link_libraries(lingmo-apps-common PUBLIC
     Qt6::Core
     Qt6::Quick
-)
-
-include(GenerateExportHeader)
-generate_export_header(lingmo-apps-common
-    EXPORT_MACRO_NAME LINGMO_LINGMO_APPS_COMMON_EXPORT
-    EXPORT_FILE_NAME /export.h
 )
 
 install(TARGETS lingmo-apps-common
